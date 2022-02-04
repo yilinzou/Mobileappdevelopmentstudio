@@ -1,2 +1,2 @@
 # yilinzou-molab
-This is the first week's homework
+This is homework list for mobile app development studio class
