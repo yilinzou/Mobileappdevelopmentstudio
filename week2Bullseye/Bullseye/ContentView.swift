@@ -7,7 +7,13 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    @State private var alertIsVisible:
+    Bool = false
+    @State private var whoIsThere:
+    Bool = false
     var body: some View {
         VStack {
             VStack {
@@ -35,7 +41,22 @@ struct ContentView: View {
                 }
             }
             Button("Hit Me") {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                print("hello swift")
+                self.alertIsVisible = true
+            }
+            .alert("Hello there!", isPresented: $alertIsVisible) {
+              Button("Awesome!") { }
+            } message: {
+              Text("This is my first pop-up")
+            }
+            
+            Button("knock knock") {
+                self.whoIsThere = true
+            }
+            .alert("Who's there!", isPresented: $whoIsThere) {
+              Button("who!") { }
+            } message: {
+              Text("who's knocking")
             }
         }
     }
