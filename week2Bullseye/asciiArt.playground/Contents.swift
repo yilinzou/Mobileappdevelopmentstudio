@@ -29,7 +29,7 @@ func replacement(_ str:String, _ offset:Int) -> String {
   let new = str[index]
   return String(new)
 }
-print(replacement(str,20))
+print(replacement(str,57))
 print(replacement(str,59))
 
 func replaceeye(_ n: Int) {
