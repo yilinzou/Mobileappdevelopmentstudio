@@ -40,15 +40,15 @@ struct ImageOverlay: View {
 
 struct ContentView: View {
     var body: some View {
-        Image("hamster1")
-                    .resizable()
-                    .scaledToFit()
-                    .overlay(ImageOverlay(), alignment: .bottom)
+        
         //add the links
         NavigationView {
             
           List {
-              
+              Image("hamster1")
+                          .resizable()
+                          .scaledToFit()
+                          .overlay(ImageOverlay(), alignment: .bottom)
             ForEach(0 ..< imageArray.count) { index in
               let item = imageArray[index]
               NavigationLink {
