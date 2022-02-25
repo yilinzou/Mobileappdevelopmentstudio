@@ -18,7 +18,7 @@ struct ContentView: View {
           Text("Music2")
         }
       }
-        
+      .navigationTitle("My Music")
       }
       
     }

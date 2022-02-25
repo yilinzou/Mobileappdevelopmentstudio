@@ -35,6 +35,7 @@ struct Page1: View {
   @State private var soundFile = bundleAudio[0]
   @State private var player: AVAudioPlayer? = nil
     var body: some View {
+      TimelineView(.animation) { context in
       VStack{
       Image("There-Are-Birds-CD")
         .resizable()
@@ -47,8 +48,6 @@ struct Page1: View {
 //        .padding(30)
 //        .frame(width: 160.0, height: 160.0)
 //        Spacer()
-        
-        
         Button("Play") {
           print("Button Play")
           player = loadBundleAudio(soundFile)
@@ -62,12 +61,14 @@ struct Page1: View {
           print("Button Stop")
           player?.stop()
         }
+        if let player = player {
+//          Text("duration " + String(format: "%.1f", player.duration))
+          Text("currentTime " + String(format: "%.1f", player.currentTime))
+        }
       }
     }
 }
 
-func playmusic(){
-  
 }
 
 

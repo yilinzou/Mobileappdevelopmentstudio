@@ -13,6 +13,9 @@
 		1D149FB327C87D7000F385E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D149FB227C87D7000F385E7 /* Preview Assets.xcassets */; };
 		1D149FBA27C87E9100F385E7 /* Page1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D149FB927C87E9100F385E7 /* Page1.swift */; };
 		1D149FBC27C87EAA00F385E7 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D149FBB27C87EAA00F385E7 /* Page2.swift */; };
+		1D149FC127C885F200F385E7 /* bbc-birds-1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1D149FBE27C8822600F385E7 /* bbc-birds-1.m4a */; };
+		1D149FC227C885F200F385E7 /* bbc-birds-2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1D149FBF27C8823400F385E7 /* bbc-birds-2.m4a */; };
+		1D149FC327C885F200F385E7 /* scale-1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1D149FC027C8823A00F385E7 /* scale-1.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +148,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D149FC127C885F200F385E7 /* bbc-birds-1.m4a in Resources */,
+				1D149FC227C885F200F385E7 /* bbc-birds-2.m4a in Resources */,
+				1D149FC327C885F200F385E7 /* scale-1.m4a in Resources */,
 				1D149FB327C87D7000F385E7 /* Preview Assets.xcassets in Resources */,
 				1D149FB027C87D7000F385E7 /* Assets.xcassets in Resources */,
 			);
