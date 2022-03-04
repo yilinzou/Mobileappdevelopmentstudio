@@ -34,26 +34,26 @@ struct Page1: View {
   @State private var soundIndex = 0
   @State private var soundFile = bundleAudio[0]
   @State private var player: AVAudioPlayer? = nil
-    var body: some View {
-      TimelineView(.animation) { context in
+  var body: some View {
+    TimelineView(.animation) { context in
       VStack{
-      Image("There-Are-Birds-CD")
-        .resizable()
-        .scaledToFit()
+        Image("There-Are-Birds-CD")
+          .resizable()
+          .scaledToFit()
         
-//      Image("play-button")
-//        .resizable()
-//        .scaledToFit()
-//        .cornerRadius(8.0)
-//        .padding(30)
-//        .frame(width: 160.0, height: 160.0)
-//        Spacer()
+        //      Image("play-button")
+        //        .resizable()
+        //        .scaledToFit()
+        //        .cornerRadius(8.0)
+        //        .padding(30)
+        //        .frame(width: 160.0, height: 160.0)
+        //        Spacer()
         Button("Play") {
           print("Button Play")
           player = loadBundleAudio(soundFile)
           print("player", player as Any)
           // Loop indefinitely
-          player?.numberOfLoops = -1
+          player?.numberOfLoops = -1//what does it mean
           player?.play()
         }
         
@@ -62,19 +62,19 @@ struct Page1: View {
           player?.stop()
         }
         if let player = player {
-//          Text("duration " + String(format: "%.1f", player.duration))
+          //          Text("duration " + String(format: "%.1f", player.duration))
           Text("currentTime " + String(format: "%.1f", player.currentTime))
         }
       }
     }
-}
-
+  }
+  
 }
 
 
 struct Page1_Previews: PreviewProvider {
-    static var previews: some View {
-        Page1()
-      
-    }
+  static var previews: some View {
+    Page1()
+    
+  }
 }
