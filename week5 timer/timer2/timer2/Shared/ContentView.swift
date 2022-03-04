@@ -11,7 +11,7 @@ struct ContentView: View {
   @AppStorage("timeRemaining") var timeRemaining = 30
   @State var timerIsRunning = false
   @State var count = 0
-  let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+  let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
   
   
     var body: some View {
