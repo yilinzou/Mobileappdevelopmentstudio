@@ -7,12 +7,15 @@
 
 import SwiftUI
 let storedUsername = "Myusername"
-let storedPassword = "Mypassword"
-
+//let storedPassword = "Mypassword"
+//let storedUsername = ["Albemarle", "Brandywine", "Chesapeake"]
 
 struct Login: View {
+//  let accountinfo = Bundle.main.decode([logininfo].self, from:"accountname.json")
+//  let iteminfo = Bundle.main.decode([AccountItem].self, from:"accountname.json")
+  //app storage example
   @State private var username: String = ""
-  @State private var password: String = ""
+//  @State private var password: String = ""
   @State var authenticationDidFail: Bool = false
   @State var authenticationDidSucceed: Bool = false
   var body: some View {
@@ -22,15 +25,25 @@ struct Login: View {
       welcomtext()
       UsernameTextField(username: $username)
       
-      PasswordSecureField(password: $password)
+//      PasswordSecureField(password: $password)
       if authenticationDidFail {
         Text("Information not correct. Try again.")
           .offset(y: -10)
           .foregroundColor(.red)
       }
+      //navigation link tie to a variable
+      
+      
+      
+      NavigationLink(destination: ContentView()){
+        LoginButtonContent()
+      }
       
       Button(action: {
-        if self.username == storedUsername && self.password == storedPassword {
+        
+        if self.username == storedUsername
+//            && self.password == storedPassword
+        {
           self.authenticationDidSucceed = true
           self.authenticationDidFail = false
         } else {
