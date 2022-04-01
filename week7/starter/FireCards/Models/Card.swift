@@ -31,9 +31,12 @@
 /// THE SOFTWARE.
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct Card: Identifiable {
-  var id: String = UUID().uuidString
+struct Card: Identifiable,Codable {
+//  var id: String = UUID().uuidString
+  @DocumentID var id: String?
+
   var question: String
   var answer: String
   var successful: Bool = true

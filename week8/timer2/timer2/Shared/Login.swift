@@ -35,27 +35,9 @@ struct Login: View {
         Text("Information not correct. Try again.")
           .offset(y: -10)
           .foregroundColor(.red)}
-      //navigation link tie to a variable
-//      NavigationLink(destination: ContentView().onAppear{self.somefunc()}){
-//
-//        Text("LOGIN")
-//          .font(.headline)
-//          .foregroundColor(.white)
-//          .padding()
-//          .frame(width: 220, height: 60)
-//          .background(Color.green)
-//          .cornerRadius(15.0)
-//       }
-//    .padding()
-      
+
       if authenticationDidSucceed {
-        //        Text("Login succeeded!")
-        //          .font(.headline)
-        //          .frame(width: 250, height: 80)
-        //          .background(Color.green)
-        //          .cornerRadius(20.0)
-        //          .foregroundColor(.white)
-        
+    
         Text("Login Succeed!")
           .offset(y: -10)
         .foregroundColor(.green)}
@@ -89,16 +71,7 @@ struct Login: View {
   }
   }
   }
-//  func somefunc(){
-//    if storedUsername.contains("\(self.username)")
-//    {
-//      self.authenticationDidSucceed = true
-//      self.authenticationDidFail = false
-//    } else {
-//      self.authenticationDidFail = true
-//    }
-////      LoginButtonContent()
-//  }
+
 func signIn(){
   print("signin")
 }

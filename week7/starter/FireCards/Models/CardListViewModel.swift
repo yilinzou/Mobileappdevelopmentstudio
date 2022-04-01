@@ -1,4 +1,4 @@
-/// Copyright (c) 2020 Razeware LLC
+/// Copyright (c) 2022 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -30,49 +30,35 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import SwiftUI
+import Foundation
+// 1
+import Combine
 
-struct CardListView: View {
-  @ObservedObject var cardListViewModel = CardListViewModel()
+// 2
+class CardListViewModel: ObservableObject {
+  // 3
+  // 1
+  @Published var cardViewModels: [CardViewModel] = []
+  // 2
+  private var cancellables: Set<AnyCancellable> = []
 
-  @State var showForm = false
-
-  var body: some View {
-    NavigationView {
-      VStack {
-        Spacer()
-        VStack {
-          GeometryReader { geometry in
-            ScrollView(.horizontal) {
-              HStack(spacing: 10) {
-                ForEach(cardListViewModel.cardViewModels) { cardViewModel in
-                  CardView(cardViewModel: cardViewModel)
-                    .padding([.leading, .trailing])
-                }
-
-              }.frame(height: geometry.size.height)
-            }
-          }
-        }
-        Spacer()
-      }
-      .sheet(isPresented: $showForm) {
-        NewCardForm(cardListViewModel: CardListViewModel())
-      }
-      .navigationBarTitle("🔥 Fire Cards")
-        // swiftlint:disable multiple_closures_with_trailing_closure
-        .navigationBarItems(trailing: Button(action: { showForm.toggle() }) {
-          Image(systemName: "plus")
-            .font(.title)
-        })
+  @Published var cardRepository = CardRepository()
+  
+  // 4
+  func add(_ card: Card) {
+    cardRepository.add(card)
+  }
+  
+  init() {
+    // 1
+    cardRepository.$cards.map { cards in
+      cards.map(CardViewModel.init)
     }
-    .navigationViewStyle(StackNavigationViewStyle())
+    // 2
+    .assign(to: \.cardViewModels, on: self)
+    // 3
+    .store(in: &cancellables)
   }
 }
 
-struct CardListView_Previews: PreviewProvider {
-  static var previews: some View {
-    CardListView(cardListViewModel: CardListViewModel())
 
-  }
-}

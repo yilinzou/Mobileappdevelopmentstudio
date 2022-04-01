@@ -14,6 +14,10 @@
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
 		1D24DBEA27ED100A00A9EA57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D24DBE927ED100900A9EA57 /* GoogleService-Info.plist */; };
+		1DFF21C527F643EB0037E081 /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFF21C427F643EB0037E081 /* CardRepository.swift */; };
+		1DFF21C727F645520037E081 /* CardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFF21C627F645520037E081 /* CardListViewModel.swift */; };
+		1DFF21C927F649270037E081 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFF21C827F649270037E081 /* CardViewModel.swift */; };
+		1DFF21CB27F663C50037E081 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFF21CA27F663C50037E081 /* AuthenticationService.swift */; };
 		EE8848F4256D987F00F990F9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE8848F3256D987F00F990F9 /* FirebaseAuth */; };
 		EE8848F6256D987F00F990F9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EE8848F5256D987F00F990F9 /* FirebaseFirestore */; };
 		EE8848F8256D987F00F990F9 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = EE8848F7256D987F00F990F9 /* FirebaseFirestoreSwift-Beta */; };
@@ -33,6 +37,10 @@
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D24DBE927ED100900A9EA57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1DFF21C427F643EB0037E081 /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
+		1DFF21C627F645520037E081 /* CardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModel.swift; sourceTree = "<group>"; };
+		1DFF21C827F649270037E081 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		1DFF21CA27F663C50037E081 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		EE9B4CC024A236A200CEA474 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		EE9B4CC224A2884200CEA474 /* NewCardForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardForm.swift; sourceTree = "<group>"; };
 		EE9B4CC424A2899700CEA474 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				EE9B4CC924A2C4BB00CEA474 /* Card.swift */,
+				1DFF21C627F645520037E081 /* CardListViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -136,6 +145,7 @@
 		EEA645CE24C26AFB00BB35F5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1DFF21CA27F663C50037E081 /* AuthenticationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -143,6 +153,7 @@
 		EEB567B924BA3209004AC4B3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				1DFF21C827F649270037E081 /* CardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -150,6 +161,7 @@
 		EEB567BA24BA3213004AC4B3 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				1DFF21C427F643EB0037E081 /* CardRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -257,7 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D775C122AD944300AE281E /* AppDelegate.swift in Sources */,
+				1DFF21C727F645520037E081 /* CardListViewModel.swift in Sources */,
+				1DFF21C527F643EB0037E081 /* CardRepository.swift in Sources */,
 				EE9B4CC524A2899700CEA474 /* CardListView.swift in Sources */,
+				1DFF21CB27F663C50037E081 /* AuthenticationService.swift in Sources */,
+				1DFF21C927F649270037E081 /* CardViewModel.swift in Sources */,
 				EE9B4CCA24A2C4BB00CEA474 /* Card.swift in Sources */,
 				18D775C322AD944300AE281E /* SceneDelegate.swift in Sources */,
 				EE9B4CC124A236A200CEA474 /* CardView.swift in Sources */,

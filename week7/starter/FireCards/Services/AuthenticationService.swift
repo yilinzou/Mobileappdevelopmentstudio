@@ -1,4 +1,4 @@
-/// Copyright (c) 2020 Razeware LLC
+/// Copyright (c) 2022 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -30,49 +30,37 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import SwiftUI
+import Foundation
+import Firebase
 
-struct CardListView: View {
-  @ObservedObject var cardListViewModel = CardListViewModel()
-
-  @State var showForm = false
-
-  var body: some View {
-    NavigationView {
-      VStack {
-        Spacer()
-        VStack {
-          GeometryReader { geometry in
-            ScrollView(.horizontal) {
-              HStack(spacing: 10) {
-                ForEach(cardListViewModel.cardViewModels) { cardViewModel in
-                  CardView(cardViewModel: cardViewModel)
-                    .padding([.leading, .trailing])
-                }
-
-              }.frame(height: geometry.size.height)
-            }
-          }
-        }
-        Spacer()
-      }
-      .sheet(isPresented: $showForm) {
-        NewCardForm(cardListViewModel: CardListViewModel())
-      }
-      .navigationBarTitle("🔥 Fire Cards")
-        // swiftlint:disable multiple_closures_with_trailing_closure
-        .navigationBarItems(trailing: Button(action: { showForm.toggle() }) {
-          Image(systemName: "plus")
-            .font(.title)
-        })
-    }
-    .navigationViewStyle(StackNavigationViewStyle())
+// 1
+class AuthenticationService: ObservableObject {
+  // 2
+  @Published var user: User?
+  private var authenticationStateHandler: AuthStateDidChangeListenerHandle?
+  
+  // 3
+  init() {
+    addListeners()
   }
-}
-
-struct CardListView_Previews: PreviewProvider {
-  static var previews: some View {
-    CardListView(cardListViewModel: CardListViewModel())
-
+  
+  // 4
+  static func signIn() {
+    if Auth.auth().currentUser == nil {
+      Auth.auth().signInAnonymously()
+    }
+  }
+  
+  private func addListeners() {
+    // 5
+    if let handle = authenticationStateHandler {
+      Auth.auth().removeStateDidChangeListener(handle)
+    }
+    
+    // 6
+    authenticationStateHandler = Auth.auth()
+      .addStateDidChangeListener { _, user in
+        self.user = user
+      }
   }
 }

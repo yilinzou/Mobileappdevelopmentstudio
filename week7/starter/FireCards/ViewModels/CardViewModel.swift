@@ -1,4 +1,4 @@
-/// Copyright (c) 2020 Razeware LLC
+/// Copyright (c) 2022 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -30,49 +30,32 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import SwiftUI
+import Foundation
+import Combine
 
-struct CardListView: View {
-  @ObservedObject var cardListViewModel = CardListViewModel()
-
-  @State var showForm = false
-
-  var body: some View {
-    NavigationView {
-      VStack {
-        Spacer()
-        VStack {
-          GeometryReader { geometry in
-            ScrollView(.horizontal) {
-              HStack(spacing: 10) {
-                ForEach(cardListViewModel.cardViewModels) { cardViewModel in
-                  CardView(cardViewModel: cardViewModel)
-                    .padding([.leading, .trailing])
-                }
-
-              }.frame(height: geometry.size.height)
-            }
-          }
-        }
-        Spacer()
-      }
-      .sheet(isPresented: $showForm) {
-        NewCardForm(cardListViewModel: CardListViewModel())
-      }
-      .navigationBarTitle("🔥 Fire Cards")
-        // swiftlint:disable multiple_closures_with_trailing_closure
-        .navigationBarItems(trailing: Button(action: { showForm.toggle() }) {
-          Image(systemName: "plus")
-            .font(.title)
-        })
-    }
-    .navigationViewStyle(StackNavigationViewStyle())
+// 1
+class CardViewModel: ObservableObject, Identifiable {
+  // 2
+  private let cardRepository = CardRepository()
+  @Published var card: Card
+  // 3
+  private var cancellables: Set<AnyCancellable> = []
+  // 4
+  var id = ""
+  
+  init(card: Card) {
+    self.card = card
+    // 5
+    $card
+      .compactMap { $0.id }
+      .assign(to: \.id, on: self)
+      .store(in: &cancellables)
   }
-}
-
-struct CardListView_Previews: PreviewProvider {
-  static var previews: some View {
-    CardListView(cardListViewModel: CardListViewModel())
-
+  func update(card: Card) {
+    cardRepository.update(card)
   }
+  func remove() {
+    cardRepository.remove(card)
+  }
+
 }
