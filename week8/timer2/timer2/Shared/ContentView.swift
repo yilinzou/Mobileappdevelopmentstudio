@@ -97,7 +97,7 @@ struct TimeDisplay: View {
     }
   }
 
-
+}
 
 
 struct ContentView_Previews: PreviewProvider {

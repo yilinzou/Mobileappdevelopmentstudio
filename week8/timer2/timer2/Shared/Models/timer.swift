@@ -14,10 +14,11 @@ struct timer: Identifiable, Codable {
   var SedentaryTimeLength: String
   var StartToday: Bool = true
   var userId: String?
+  var count: String
 }
 
-#if DEBUG
-let testData = (1...10).map { i in
-  Card(question: "Question #\(i)", answer: "Answer #\(i)")
-}
-#endif
+//#if DEBUG
+//let testData = (1...10).map { i in
+//  timer(question: "Question #\(i)", answer: "Answer #\(i)")
+//}
+//#endif
